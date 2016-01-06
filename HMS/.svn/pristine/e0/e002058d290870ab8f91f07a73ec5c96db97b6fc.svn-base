@@ -1,0 +1,66 @@
+
+
+
+<ViewConfig>
+  <Property name="metaData">
+    <Property name="securityTag">Assignhomework</Property>
+  </Property>
+  <Arguments/>
+  <Context/>
+  <Model>
+    </Model>
+  <View>
+  
+<DataSet id="dsAssignhomework">
+	  <Property name="dataType">[Assignhomework]</Property>
+	  <Property name="dataProvider">assignhomeworkPR#queryAssignhomework</Property>
+	  <Property name="pageSize">20</Property>
+	  </DataSet><UpdateAction id="uaAssignhomework">
+  <Property name="dataResolver">assignhomeworkPR#saveAssignhomework</Property>
+  <UpdateItem>
+     <Property name="dataSet">dsAssignhomework</Property>
+  </UpdateItem>
+</UpdateAction>
+<ToolBar>
+<DataPilot>
+
+	<Property name="itemCodes">pages,+,-,x</Property>
+	<Property name="dataSet">dsAssignhomework</Property>
+	<Property name="dataPath"></Property>
+</DataPilot>
+
+
+<ToolBarButton>
+  <Property name="caption">数据保存</Property>
+  <Property name="action">uaAssignhomework</Property>
+  <Property name="icon"> url(>skin>common/icons.gif) -300px -60px</Property>
+</ToolBarButton> 
+</ToolBar>
+<DataGrid id="dgAssignhomework">
+	<RowNumColumn/>
+	<DataColumn name="homeworkoid">
+	<Property name="property">homeworkoid</Property>
+               	</DataColumn>
+	<DataColumn name="efile">
+	<Property name="property">efile</Property>
+               	</DataColumn>
+	<DataColumn name="homeworkdate">
+	<Property name="property">homeworkdate</Property>
+               	</DataColumn>
+	<DataColumn name="homeworktip">
+	<Property name="property">homeworktip</Property>
+               	</DataColumn>
+	<DataColumn name="homeworkname">
+	<Property name="property">homeworkname</Property>
+               	</DataColumn>
+	<DataColumn name="homeworknumber">
+	<Property name="property">homeworknumber</Property>
+               	</DataColumn>
+	<Property name="dataSet">dsAssignhomework</Property>
+	<Property name="dataPath"></Property>
+	  	<Property name="filterMode">serverSide</Property>
+	<Property name="showFilterBar">true</Property>
+  	<Property name="rowHeight">22</Property>
+	</DataGrid>   
+     </View>
+</ViewConfig>

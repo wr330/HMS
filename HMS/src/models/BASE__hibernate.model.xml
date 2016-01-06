@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+  <DataType name="Homeworkstate">
+    <Property name="matchType">com.test.domain.Homeworkstate</Property>
+    <PropertyDef name="studentid">
+      <Property name="dataType">String</Property>
+      <Property name="label">学号</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="createddate">
+      <Property name="dataType">Date</Property>
+      <Property name="label">创建日期</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkgrade">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">分数</Property>
+    </PropertyDef>
+    <PropertyDef name="efile">
+      <Property name="dataType">String</Property>
+      <Property name="label">附件</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkname">
+      <Property name="dataType">String</Property>
+      <Property name="label">作业名称</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkstate">
+      <Property name="dataType">String</Property>
+      <Property name="label">作业状态</Property>
+    </PropertyDef>
+    <PropertyDef name="beizhu">
+      <Property name="dataType">String</Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkoid">
+      <Property name="dataType">String</Property>
+      <Property name="label">homeworkoid</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="Assignhomework">
+    <Property name="matchType">com.test.domain.Assignhomework</Property>
+    <PropertyDef name="efile">
+      <Property name="dataType">String</Property>
+      <Property name="label">附件</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkdate">
+      <Property name="dataType">Date</Property>
+      <Property name="label">日期</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworktip">
+      <Property name="dataType">String</Property>
+      <Property name="label">提示</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkname">
+      <Property name="dataType">String</Property>
+      <Property name="label">名称</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworknumber">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">作业序号</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkoid">
+      <Property name="dataType">String</Property>
+      <Property name="label">homeworkoid</Property>
+    </PropertyDef>
+  </DataType>
+</Model>

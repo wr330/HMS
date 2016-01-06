@@ -1,0 +1,80 @@
+<Model>
+<DataType name="Userinfoemation">
+    <Property name="matchType">com.test.domain.Userinfoemation</Property>
+    <PropertyDef name="male">
+      <Property name="dataType">String</Property>
+      <Property name="label">male</Property>
+    </PropertyDef>
+    <PropertyDef name="usertype">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">usertype</Property>
+    </PropertyDef>
+    <PropertyDef name="email">
+      <Property name="dataType">String</Property>
+      <Property name="label">email</Property>
+    </PropertyDef>
+    <PropertyDef name="usercreated">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">usercreated</Property>
+    </PropertyDef>
+    <PropertyDef name="telephone">
+      <Property name="dataType">String</Property>
+      <Property name="label">telephone</Property>
+    </PropertyDef>
+    <PropertyDef name="userpassword">
+      <Property name="dataType">String</Property>
+      <Property name="label">userpassword</Property>
+    </PropertyDef>
+    <PropertyDef name="username">
+      <Property name="dataType">String</Property>
+      <Property name="label">username</Property>
+    </PropertyDef>
+    <PropertyDef name="useeffectivetime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">useeffectivetime</Property>
+    </PropertyDef>
+    <PropertyDef name="studentid">
+      <Property name="dataType">String</Property>
+      <Property name="label">studentid</Property>
+    </PropertyDef>
+    <PropertyDef name="userid">
+      <Property name="dataType">$col.javaTypeName</Property>
+      <Property name="label">userid</Property>
+    </PropertyDef>
+ </DataType>
+<DataType name="Homeworkstate">
+    <Property name="matchType">com.test.domain.Homeworkstate</Property>
+    <PropertyDef name="studentid">
+      <Property name="dataType">String</Property>
+      <Property name="label">studentid</Property>
+    </PropertyDef>
+    <PropertyDef name="createddate">
+      <Property name="dataType">Date</Property>
+      <Property name="label">createddate</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkgrade">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">homeworkgrade</Property>
+    </PropertyDef>
+    <PropertyDef name="efile">
+      <Property name="dataType">String</Property>
+      <Property name="label">efile</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkname">
+      <Property name="dataType">String</Property>
+      <Property name="label">homeworkname</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkstate">
+      <Property name="dataType">String</Property>
+      <Property name="label">homeworkstate</Property>
+    </PropertyDef>
+    <PropertyDef name="beizhu">
+      <Property name="dataType">String</Property>
+      <Property name="label">beizhu</Property>
+    </PropertyDef>
+    <PropertyDef name="homeworkoid">
+      <Property name="dataType">$col.javaTypeName</Property>
+      <Property name="label">homeworkoid</Property>
+    </PropertyDef>
+ </DataType>
+</Model>

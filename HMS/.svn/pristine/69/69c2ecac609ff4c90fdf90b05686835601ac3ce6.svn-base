@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <ToolBar>
+      <DataPilot>
+        <Property name="itemCodes">pages</Property>
+        <Property name="dataSet">dsAssignhomework</Property>
+      </DataPilot>
+      <Button>
+        <ClientEvent name="onClick">view.id('dsAssignhomework').getData().insert();&#xD;
+view.id(&quot;diahomework&quot;).show();&#xD;
+&#xD;
+</ClientEvent>
+        <Property name="caption">布置作业</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -280px -100px</Property>
+      </Button>
+      <Button>
+        <ClientEvent name="onClick">view.id('dsAssignhomework').getData(&quot;#&quot;);&#xD;
+view.id(&quot;diahomework&quot;).show();</ClientEvent>
+        <Property name="caption">修改</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -0px -120px</Property>
+      </Button>
+    </ToolBar>
+    <DataGrid>
+      <ClientEvent name="onDataRowClick">var dsHomeworkstate=view.id('dsHomeworkstate');&#xD;
+var cur = view.id('dsAssignhomework').getData(&quot;#&quot;).get(&quot;homeworkname&quot;);&#xD;
+dsHomeworkstate.set(&quot;parameter&quot;,{&#xD;
+	homeworkname:cur&#xD;
+});&#xD;
+dsHomeworkstate.flushAsync();</ClientEvent>
+      <Property name="dataSet">dsAssignhomework</Property>
+      <Property name="height">400</Property>
+      <Property name="readOnly">true</Property>
+      <RowNumColumn/>
+      <DataColumn>
+        <Property name="property">homeworknumber</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">homeworkname</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">homeworkdate</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">homeworktip</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <ClientEvent name="onRenderCell">jQuery(arg.dom).empty();&#xD;
+var file = arg.data.get(&quot;efile&quot;);&#xD;
+var oid = arg.data.get(&quot;homeworkoid&quot;);&#xD;
+var href = &quot;/Assignhomework/&quot; + oid + &quot;/&quot; + file;&#xD;
+jQuery(arg.dom).xCreate({&#xD;
+	tagName:&quot;A&quot;,&#xD;
+	href:href,&#xD;
+	content:arg.data.get(&quot;efile&quot;)&#xD;
+});&#xD;
+</ClientEvent>
+        <Property name="property">efile</Property>
+        <Editor/>
+      </DataColumn>
+    </DataGrid>
+    <DataSet id="dsAssignhomework">
+      <Property name="pageSize">20</Property>
+      <Property name="dataProvider">assignhomeworkPR#queryAssignhomework</Property>
+      <Property name="dataType">[Assignhomework]</Property>
+    </DataSet>
+    <Dialog id="diahomework">
+      <Property name="minHeight">300</Property>
+      <Property name="width">420</Property>
+      <Buttons>
+        <Button>
+          <ClientEvent name="onClick">view.id('udHomework').execute(function(){&#xD;
+	view.id('diahomework').hide();&#xD;
+});&#xD;
+</ClientEvent>
+          <Property name="caption">确定</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -20px 0px</Property>
+        </Button>
+        <Button>
+          <ClientEvent name="onClick">var cur=view.id('dsAssignhomework').getData('#');&#xD;
+if(cur){&#xD;
+		cur.cancel();&#xD;
+		view.id('diahomework').hide();&#xD;
+		}</ClientEvent>
+          <Property name="caption">取消</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -220px -240px</Property>
+        </Button>
+      </Buttons>
+      <Children>
+        <AutoForm>
+          <Property name="dataSet">dsAssignhomework</Property>
+          <Property name="dataPath">#</Property>
+          <Property name="cols">*</Property>
+          <Property name="width">400</Property>
+          <AutoFormElement>
+            <Property name="property">homeworknumber</Property>
+            <Property name="editorType">TextEditor</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="property">homeworkname</Property>
+            <Property name="editorType">TextEditor</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="property">homeworkdate</Property>
+            <Property name="editorType">TextEditor</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="property">homeworktip</Property>
+            <Property name="editorType">TextEditor</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="property">efile</Property>
+            <Property name="name">efile</Property>
+            <Editor>
+              <Container>
+                <TextEditor layoutConstraint="center">
+                  <Property name="dataSet">dsAssignhomework</Property>
+                  <Property name="dataPath">#</Property>
+                  <Property name="readOnly">true</Property>
+                  <Property name="property">efile</Property>
+                </TextEditor>
+                <Button layoutConstraint="right ">
+                  <Property name="caption">上传</Property>
+                  <Property name="action">uaUpload</Property>
+                </Button>
+              </Container>
+            </Editor>
+          </AutoFormElement>
+        </AutoForm>
+      </Children>
+      <Tools/>
+    </Dialog>
+    <UpdateAction id="udHomework">
+      <Property name="dataResolver">assignhomeworkPR#saveAssignhomework</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsAssignhomework</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <ToolBar>
+      <DataPilot>
+        <Property name="itemCodes">pages</Property>
+        <Property name="dataSet">dsHomeworkstate</Property>
+      </DataPilot>
+      <Button>
+        <Property name="caption">保存分数</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -280px -100px</Property>
+      </Button>
+      <Button>
+        <Property name="caption">批量下载</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -0px -120px</Property>
+      </Button>
+    </ToolBar>
+    <DataGrid>
+      <Property name="dataSet">dsHomeworkstate</Property>
+      <Property name="readOnly">true</Property>
+      <RowNumColumn/>
+      <DataColumn>
+        <Property name="property">studentid</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">createddate</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">homeworkname</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">homeworkstate</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">homeworkgrade</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">efile</Property>
+        <Property name="name">efile</Property>
+        <Editor/>
+      </DataColumn>
+      <DataColumn>
+        <Property name="property">beizhu</Property>
+        <Editor/>
+      </DataColumn>
+    </DataGrid>
+    <DataSet id="dsHomeworkstate">
+      <Property name="pageSize">20</Property>
+      <Property name="dataProvider">homeworkstatePR#queryHomeworkstate</Property>
+      <Property name="dataType">[Homeworkstate]</Property>
+    </DataSet>
+    <UpdateAction id="upHomework">
+      <Property name="dataResolver">homeworkstatePR#saveHomeworkstate</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsHomeworkstate</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <UploadAction id="uaUpload">
+      <ClientEvent name="onError">var error = arg.error;&#xD;
+	dorado.MessageBox.show({&#xD;
+		title:error.message,&#xD;
+		message:error.file.name + &quot; 超过大小限制:&quot;+ self.get('maxFileSize'),&#xD;
+		icon: &quot;WARNING&quot;,&#xD;
+		buttons: [&quot;ok&quot;]&#xD;
+	});</ClientEvent>
+      <ClientEvent name="onFilesAdded">var cur=view.id('dsAssignhomework').getData('#');&#xD;
+var value = &quot;/Assignhomework/&quot; + cur.get(&quot;homeworkoid&quot;) + &quot;/&quot;;&#xD;
+self.set(&quot;multipartParams&quot;, {record: value});</ClientEvent>
+      <ClientEvent name="onFileUploaded">var returnValue = arg.file.name;&#xD;
+var cur=view.id('dsAssignhomework').getData('#');&#xD;
+cur.set(&quot;efile&quot;,returnValue);</ClientEvent>
+      <Filters/>
+    </UploadAction>
+  </View>
+</ViewConfig>
